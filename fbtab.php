@@ -4,11 +4,12 @@ Plugin Name: Facebook Tab Manager
 Plugin URI: http://facebooktabmanager.com
 Description: Makes WordPress function as an editor for tabs you can embed in a Facebook page for your business, campaign, or organization. Include any WordPress content, including output from Shortcodes and other plugin functions.
 Author: David F. Carr
-Version: 3.4.2
+Version: 3.4.4
 Author URI: http://www.carrcommunications.com/
 */
 
 //make sure new rules will be generated for custom post type
+include 'fbtab-css.php';
 
 function is_fbtab() {
 global $wp;
@@ -303,14 +304,17 @@ else
 ?>
 <br />
 CSS Styles:<br /> 
-<textarea name="<?php echo $wrapper; ?>[style]" cols="60" rows="2"><?php echo $custom_fields["_style"][0]; ?></textarea><br />
-<a target="_blank" href="<?php echo plugins_url('/fbtab-css.php?show=text',__FILE__); ?>">See default styles</a><br />
+<textarea name="<?php echo $wrapper; ?>[style]" cols="60" rows="2"><?php if(!empty($custom_fields["_style"][0])) echo $custom_fields["_style"][0]; ?></textarea><br />
+<a target="_blank" href="<?php echo home_url('?fbtab_css=1&show=text'); ?>">See default styles</a><br />
+Example, colored backround, margin and padding on content:
+<pre>body {background-color: #626eba;}
+div#content {background-color: #fff; margin: 20px; padding: 20px;}</pre>
 <br />
 More code to add to head (External Styles):<br /> 
-<textarea name="<?php echo $wrapper; ?>[inchead]" cols="60" rows="2"><?php echo $custom_fields["_inchead"][0]; ?></textarea><br />
+<textarea name="<?php echo $wrapper; ?>[inchead]" cols="60" rows="2"><?php if(!empty($custom_fields["_inchead"][0])) echo $custom_fields["_inchead"][0]; ?></textarea><br />
 <br />
 More code to add to footer (Scripts, Links):<br /> 
-<textarea name="<?php echo $wrapper; ?>[incfooter]" cols="60" rows="2"><?php echo $custom_fields["_incfooter"][0]; ?></textarea><br />
+<textarea name="<?php echo $wrapper; ?>[incfooter]" cols="60" rows="2"><?php if(!empty($custom_fields["_incfooter"][0])) echo $custom_fields["_incfooter"][0]; ?></textarea><br />
 
 <input type="checkbox" name="<?php echo $wrapper; ?>[new_window]" value="1" <?php if(!empty($custom_fields["_new_window"][0])) echo ' checked="checked" '; ?>  />
 Open Links / Post Forms to New Window<br />
@@ -625,7 +629,7 @@ add_filter('mce_css', 'fbtab_mce_css');
 function fbtab_mce_css($style) {
 global $post;
 if(($post->post_type == 'fbtab') || (isset($_GET["post_type"]) && ($_GET["post_type"] == 'fbtab') ) )
-  return plugins_url('/fbtab-css.php?postid='.$post->ID,__FILE__);
+  return home_url('?fbtab_css=1&postid='.$post->ID);
  else
  	return $style;
 }
@@ -1293,4 +1297,13 @@ return sprintf('<div class="fbtab_menu" %s>'."\n%s\n</div>",$css_id,wp_nav_menu(
 
 add_shortcode('fbtab_nav_menu','fbtab_nav_menu');
 
+function fbtab_no_related_posts( $options ) {
+	global $post;
+	//prevent Jetpack Related posts output
+    if ( $post->post_type == 'fbtab' ) {
+        $options['enabled'] = $options['headline'] = false;
+    }
+    return $options;
+}
+add_filter( 'jetpack_relatedposts_filter_options', 'fbtab_no_related_posts' );
 ?>

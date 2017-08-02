@@ -4,16 +4,14 @@ Tags: facebook, fb, rich text editor, custom post type, social media, facebook t
 Donate link: http://facebooktabmanager.com
 Requires at least: 3.0
 Tested up to: 4.8
-Stable tag: 3.4.2
-Makes WordPress function as an editor for tabs you can embed in a Facebook page for your business, campaign, or organization.
+Stable tag: 3.4.4
+Makes WordPress function as an editor for tabs you can embed in a Facebook page for your business, campaign, or organization. Can include plugin output, current blog listings.
 
 == Description ==
 
 The Facebook Tab Manager allows you to create landing pages and other types of content to be displayed within Facebook, particularly within the tabs that appear on Facebook business pages and pages for other types of organizations. This provides a way of putting more interesting layouts and functionality into your Facebook pages, without the need to get too deep into fancy programming.
 
-The Facebook Tab Manager was specifically designed to take advantage of a recent Facebook page redesign that added support for iframe tabs on Facebook pages. Optionally, you can now also specify content to be displayed on an associated canvas page.
-
-Tab content can include most any WordPress content, including output from Shortcodes and other plugin functions.
+Tab content can include most any WordPress content, including output from Shortcodes and other plugin functions. Use the fbtab shortcode in combination with query strings such as query="posts_per_page=10" to pull in a listing of your latest blog posts. Add custom CSS to format your content.
 
 [__Facebook Tab Manager for WordPress Documentation, Blog and SSL Hosting__](http://tabmgr.com/)
 
