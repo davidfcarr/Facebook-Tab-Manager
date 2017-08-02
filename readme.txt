@@ -4,7 +4,7 @@ Tags: facebook, fb, rich text editor, custom post type, social media, facebook t
 Donate link: http://facebooktabmanager.com
 Requires at least: 3.0
 Tested up to: 4.8
-Stable tag: 3.4.4
+Stable tag: 3.4.5
 Makes WordPress function as an editor for tabs you can embed in a Facebook page for your business, campaign, or organization. Can include plugin output, current blog listings.
 
 == Description ==
@@ -17,9 +17,7 @@ Tab content can include most any WordPress content, including output from Shortc
 
 [__Live examples at www.facebook.com/carrcomm__](http://www.facebook.com/carrcomm)
 
-**Note:** Facebook requires all "apps" and page tabs to be displayed within facebook.com be available from both an HTTP and an HTTPS address. This means you must obtain an SSL certificate for your web domain and configure it on your server. When Facebook users browse the website in HTTPS mode, you need to be able to present your embedded content at an HTTPS address also.
-
-As an alternative, Carr Communications offers a subscription service including WordPress accounts with Facebook Tab Manager and SSL security pre-configured at [__TabMgr.com__](https://tabmgr.com/).
+**Note:** Facebook requires all "apps" and page tabs to be displayed within facebook.com be available from an HTTPS address. This means you must obtain an SSL certificate for your web domain and configure it on your server. When Facebook users browse the website in HTTPS mode, you need to be able to present your embedded content at an HTTPS address also.
 
 == Installation ==
 

@@ -4,7 +4,7 @@ Plugin Name: Facebook Tab Manager
 Plugin URI: http://facebooktabmanager.com
 Description: Makes WordPress function as an editor for tabs you can embed in a Facebook page for your business, campaign, or organization. Include any WordPress content, including output from Shortcodes and other plugin functions.
 Author: David F. Carr
-Version: 3.4.4
+Version: 3.4.5
 Author URI: http://www.carrcommunications.com/
 */
 
